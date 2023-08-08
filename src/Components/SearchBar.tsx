@@ -1,5 +1,6 @@
 import { Cat } from '../types';
 import { useState } from 'react';
+import searchIcon from '../assets/search.svg';
 
 export default function Search({ breeds }: { breeds: Cat[] }) {
     const [inputValue, setInputValue] = useState<string>('');
@@ -25,34 +26,36 @@ export default function Search({ breeds }: { breeds: Cat[] }) {
     }
 
     return (
-        <>
+        <div className="flex items-center self-stretch rounded-[60px] bg-white p-2 focus-within:outline focus-within:outline-2 focus-within:outline-orange-400 md:w-[400px]">
             <input
                 type="search"
-                className="border border-solid border-gray-700 py-1 px-2"
+                className="w-[100px] flex-1 rounded-lg px-1 py-1 text-lg focus:outline-none md:px-2"
                 list="flavors"
+                placeholder="Enter your breed"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
             />
-            <button
-                className="border border-solid border-gray-600 bg-orange-600 text-white"
-                onClick={checkName}
-            >
-                Search
+            <button onClick={checkName} className=" shrink-0">
+                <img
+                    src={searchIcon}
+                    alt="search icon"
+                    className="h-[24px] w-[24px]"
+                />
             </button>
             <datalist id="flavors">{options}</datalist>
             <div
-                className={`bg-white absolute ${
+                className={`absolute bg-white ${
                     modalMsg ? 'top-2' : '-top-1/2'
                 } left-1/2 -translate-x-1/2 border border-solid border-black p-4 transition-all duration-200`}
             >
                 <button
-                    className="absolute top-0 right-[2px] text-xs"
+                    className="absolute right-[2px] top-0 text-xs"
                     onClick={() => setModalMsg('')}
                 >
                     &#x274C;
                 </button>
                 <p>{modalMsg}</p>
             </div>
-        </>
+        </div>
     );
 }

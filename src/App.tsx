@@ -6,6 +6,7 @@ function App() {
     const [breeds, setBreeds] = useState<Cat[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
+    const [secondTime, setSecondTime] = useState<boolean>(false);
 
     async function getBreeds() {
         try {
@@ -16,6 +17,10 @@ function App() {
             setBreeds(json);
             setLoading(false);
         } catch {
+            if (!secondTime) {
+                setSecondTime(true);
+                getBreeds();
+            }
             setError(true);
         }
     }
@@ -26,7 +31,7 @@ function App() {
 
     if (error)
         return (
-            <div className="h-screen w-screen justify-center items-center flex flex-col gap-3">
+            <div className="flex h-screen w-screen flex-col items-center justify-center gap-3">
                 <h1 className="text-lg">
                     A network error has ocurred. Try reloading the page.
                 </h1>
