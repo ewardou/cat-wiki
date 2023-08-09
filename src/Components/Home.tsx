@@ -3,10 +3,10 @@ import Card from './Card';
 import { Link, useOutletContext } from 'react-router-dom';
 import { Cat } from '../types';
 import arrowIcon from '../assets/arrow.svg';
-import catWikiLogo from '../assets/CatwikiLogo.svg';
 import image1 from '../assets/image 1.png';
 import image2 from '../assets/image 2.png';
 import image3 from '../assets/image 3.png';
+import Logo from './Logo';
 
 function Home() {
     const breeds = useOutletContext<Cat[]>();
@@ -24,11 +24,7 @@ function Home() {
                 <header className="mx-auto flex max-w-7xl flex-col items-center bg-[#050709] bg-[auto_540px] bg-[right_center] bg-no-repeat p-3 px-10 sm:h-[540px] sm:flex-row sm:bg-[url('/src/assets/HeroImagemd.png')]">
                     <div className="block h-60 w-60 rounded-full bg-[url('/src/assets/HeroImagemd.png')] bg-cover bg-[90%] outline outline-2 outline-white sm:hidden" />
                     <div className="flex max-w-[400px] flex-col items-center gap-4 sm:items-stretch">
-                        <img
-                            src={catWikiLogo}
-                            alt="Cat wiki logo"
-                            className="h-[90px] w-auto sm:mr-auto"
-                        />
+                        <Logo />
                         <p className="mb-9 text-2xl text-white">
                             Get to know more about your cat breed
                         </p>
