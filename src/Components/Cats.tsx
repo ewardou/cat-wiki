@@ -18,7 +18,9 @@ export default function Cats() {
             <main className="bg-[#050709] p-7 md:p-10">
                 <div className="mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(220px,1fr))] justify-items-center gap-7 rounded-3xl bg-[#E3E1DC] p-5">
                     {breeds.map((item) => (
-                        <Card key={item.id} breed={item} />
+                        <Link key={item.id} to={`/cats/${item.id}`}>
+                            <Card breed={item} />
+                        </Link>
                     ))}
                 </div>
             </main>
