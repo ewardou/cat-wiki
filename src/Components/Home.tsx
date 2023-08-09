@@ -2,11 +2,11 @@ import Search from './SearchBar';
 import Card from './Card';
 import { Link, useOutletContext } from 'react-router-dom';
 import { Cat } from '../types';
-import arrowIcon from '../assets/arrow.svg';
 import image1 from '../assets/image 1.png';
 import image2 from '../assets/image 2.png';
 import image3 from '../assets/image 3.png';
 import Logo from './Logo';
+import ReadMore from './ReadMore';
 
 function Home() {
     const breeds = useOutletContext<Cat[]>();
@@ -42,18 +42,16 @@ function Home() {
                         <p className="text-lg">Complete breed list</p>
                         <div className="h-1 w-[50%] bg-slate-800"></div>
                     </div>
-                    <Link
-                        to="/cats"
-                        className=" flex items-end justify-between"
-                    >
-                        <h1 className="text-4xl font-bold transition-colors duration-300 hover:text-orange-300 md:w-[50%] md:text-5xl">
-                            66+ breeds for you to explore
-                        </h1>
-                        <span className="hidden align-bottom text-lg font-semibold md:flex">
-                            See more
-                            <img src={arrowIcon} className="h-6 w-6" />
+                    <div className=" flex items-end justify-between">
+                        <Link to="/cats">
+                            <h1 className="text-4xl font-bold transition-colors duration-300 hover:text-orange-300 md:w-[75%] md:text-5xl">
+                                66+ breeds for you to explore
+                            </h1>
+                        </Link>
+                        <span className="hidden md:inline-block">
+                            <ReadMore path="/cats" />
                         </span>
-                    </Link>
+                    </div>
                     <div className="flex flex-wrap justify-evenly gap-5">
                         {breeds.length !== 0 ? samples : null}
                     </div>
@@ -71,10 +69,7 @@ function Home() {
                         calming chemicals in your body which lower your stress
                         and anxiety levels
                     </p>
-                    <Link to="/why-should-you-have-a-cat">
-                        Read more{' '}
-                        <img src={arrowIcon} className="inline-block h-6 w-6" />
-                    </Link>
+                    <ReadMore path="/why-should-you-have-a-cat" />
                 </div>
                 <div className="grid grid-cols-2 grid-rows-[min-content_1fr] gap-4">
                     <img src={image2} alt="" className="h-auto w-full" />
