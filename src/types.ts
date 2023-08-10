@@ -21,4 +21,6 @@ export interface CatDetailed extends Cat{
     vocalisation:number;
     shedding_level:number;
     energy_level:number;
+    wikipedia_url:string;
+    gallery: string[];
 }
