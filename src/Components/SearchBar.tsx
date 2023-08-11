@@ -1,10 +1,12 @@
 import { Cat } from '../types';
 import { useState } from 'react';
 import searchIcon from '../assets/search.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function Search({ breeds }: { breeds: Cat[] }) {
     const [inputValue, setInputValue] = useState<string>('');
     const [modalMsg, setModalMsg] = useState<string>('');
+    const navigate = useNavigate();
 
     const options = breeds.map((breed) => (
         <option value={breed.name} key={breed.id} />
@@ -21,8 +23,9 @@ export default function Search({ breeds }: { breeds: Cat[] }) {
             item.name.toLowerCase().includes(inputValue.toLowerCase()),
         );
         if (!obj) {
-            addTimeout(`${inputValue} not found`);
+            return addTimeout(`${inputValue} not found`);
         }
+        navigate(`/cats/${obj.id}`);
     }
 
     return (

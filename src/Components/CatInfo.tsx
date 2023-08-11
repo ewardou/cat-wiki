@@ -3,6 +3,7 @@ import { CatDetailed } from '../types';
 import { Link, useParams } from 'react-router-dom';
 import Characteristics from './Characteristics';
 import Logo from './Logo';
+import Loading from './Loading';
 
 export default function CatInfo() {
     const [info, setInfo] = useState<CatDetailed | null>(null);
@@ -22,7 +23,7 @@ export default function CatInfo() {
         getInfo();
     }, []);
 
-    if (!info) return <h1>Loading...</h1>;
+    if (!info) return <Loading />;
 
     return (
         <div className="min-h-screen bg-[#050709] px-4 pb-5">
@@ -52,7 +53,7 @@ export default function CatInfo() {
                     </p>
                     <p>
                         <span className="font-medium">Life span:</span>{' '}
-                        {info.life_span}
+                        {info.life_span} years
                     </p>
                 </div>
             </section>
