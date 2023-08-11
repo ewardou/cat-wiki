@@ -3,6 +3,7 @@ import App from './App';
 import Home from './Components/Home';
 import Cats from './Components/Cats';
 import CatInfo from './Components/CatInfo';
+import ErrorPage from './Components/ErrorPage';
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const Router = () => {
                 { element: <Cats />, path: 'cats' },
                 { element: <CatInfo />, path: 'cats/:CatID' },
             ],
+            errorElement: <ErrorPage />,
         },
     ]);
 
