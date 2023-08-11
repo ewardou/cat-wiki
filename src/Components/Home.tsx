@@ -1,6 +1,6 @@
 import Search from './SearchBar';
 import Card from './Card';
-import { Link, useOutletContext } from 'react-router-dom';
+import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 import { Cat } from '../types';
 import image1 from '../assets/image 1.png';
 import image2 from '../assets/image 2.png';
@@ -10,6 +10,7 @@ import ReadMore from './ReadMore';
 
 function Home() {
     const breeds = useOutletContext<Cat[]>();
+    const navigate = useNavigate();
 
     const samples = [
         <Link to={`/cats/${breeds[4].id}`} key={breeds[4].id}>
@@ -26,6 +27,11 @@ function Home() {
         </Link>,
     ];
 
+    function getRandomCat() {
+        const randomBreed = breeds[Math.floor(Math.random() * breeds.length)];
+        navigate(`/cats/${randomBreed.id}`);
+    }
+
     return (
         <>
             <header className="bg-[#050709]">
@@ -38,7 +44,13 @@ function Home() {
                         </p>
                         <Search breeds={breeds} />
                         <p className="mx-auto text-lg text-white">
-                            Or try a random breed
+                            Or try a{' '}
+                            <button
+                                onClick={getRandomCat}
+                                className="font-bold text-orange-300"
+                            >
+                                random breed
+                            </button>
                         </p>
                     </div>
                 </header>
