@@ -7,6 +7,8 @@ import Logo from './Logo';
 export default function CatInfo() {
     const [info, setInfo] = useState<CatDetailed | null>(null);
     const { CatID } = useParams();
+    const [viewerVisible, setViewerVisible] = useState<boolean>(false);
+    const [viewerImage, setViewerImage] = useState<string>('');
 
     async function getInfo() {
         const response = await fetch(
@@ -59,15 +61,43 @@ export default function CatInfo() {
                 <h1 className="text-xl font-semibold">Other photos</h1>
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] justify-items-center gap-y-4 p-4">
                     {info.gallery.map((item, index) => (
-                        <img
-                            src={item}
-                            alt=""
+                        <button
                             key={index}
-                            className="h-[190px] w-[190px] rounded-3xl object-cover object-center"
-                        />
+                            onClick={() => {
+                                setViewerImage(item);
+                                setViewerVisible(true);
+                            }}
+                        >
+                            <img
+                                src={item}
+                                alt=""
+                                className="h-[190px] w-[190px] rounded-3xl object-cover object-center transition-shadow duration-300 hover:shadow-[-8px_0px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-orange-300"
+                            />
+                        </button>
                     ))}
                 </div>
             </section>
+
+            <div
+                onClick={() => setViewerVisible(false)}
+                className={`${
+                    viewerVisible ? 'scale-100' : 'scale-0'
+                } fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[rgba(0,0,0,0.5)] p-3 transition-transform duration-200`}
+            >
+                <div className="h-auto w-[90%] overflow-auto rounded-xl bg-white p-4 sm:h-5/6 sm:w-auto">
+                    <button
+                        onClick={() => setViewerVisible(false)}
+                        className="ml-auto block"
+                    >
+                        &#x274C;
+                    </button>
+                    <img
+                        src={viewerImage}
+                        alt=""
+                        className="h-auto w-[100%] max-w-none overflow-auto sm:h-[95%] sm:w-auto"
+                    />
+                </div>
+            </div>
         </div>
     );
 }

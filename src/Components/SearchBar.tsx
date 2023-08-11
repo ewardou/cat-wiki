@@ -46,10 +46,10 @@ export default function Search({ breeds }: { breeds: Cat[] }) {
             <div
                 className={`absolute bg-white ${
                     modalMsg ? 'top-2' : '-top-1/2'
-                } left-1/2 -translate-x-1/2 border border-solid border-black p-4 transition-all duration-200`}
+                } left-1/2 -translate-x-1/2 rounded-xl p-4 transition-all duration-200`}
             >
                 <button
-                    className="absolute right-[2px] top-0 text-xs"
+                    className="absolute right-2 top-1 text-xs"
                     onClick={() => setModalMsg('')}
                 >
                     &#x274C;
