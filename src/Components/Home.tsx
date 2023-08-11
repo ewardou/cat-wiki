@@ -12,10 +12,18 @@ function Home() {
     const breeds = useOutletContext<Cat[]>();
 
     const samples = [
-        <Card breed={breeds[4]} key={breeds[4].id} />,
-        <Card breed={breeds[14]} key={breeds[34].id} />,
-        <Card breed={breeds[30]} key={breeds[10].id} />,
-        <Card breed={breeds[57]} key={breeds[57].id} />,
+        <Link to={`/cats/${breeds[4].id}`} key={breeds[4].id}>
+            <Card breed={breeds[4]} />
+        </Link>,
+        <Link to={`/cats/${breeds[14].id}`} key={breeds[14].id}>
+            <Card breed={breeds[14]} />
+        </Link>,
+        <Link to={`/cats/${breeds[30].id}`} key={breeds[30].id}>
+            <Card breed={breeds[30]} />
+        </Link>,
+        <Link to={`/cats/${breeds[57].id}`} key={breeds[57].id}>
+            <Card breed={breeds[57]} />
+        </Link>,
     ];
 
     return (
@@ -85,7 +93,12 @@ function Home() {
             <footer className="mx-auto max-w-7xl">
                 <p>
                     Project idea from{' '}
-                    <a href="https://devchallenges.io/">devChallenges</a>
+                    <a
+                        href="https://devchallenges.io/"
+                        className="font-bold text-orange-400"
+                    >
+                        devChallenges
+                    </a>
                 </p>
             </footer>
         </>
