@@ -2,11 +2,9 @@ import Search from './SearchBar';
 import Card from './Card';
 import { Link, useNavigate, useOutletContext } from 'react-router-dom';
 import { Cat } from '../types';
-import image1 from '../assets/image 1.png';
-import image2 from '../assets/image 2.png';
-import image3 from '../assets/image 3.png';
 import Logo from './Logo';
 import ReadMore from './ReadMore';
+import Collage from './Collage';
 
 function Home() {
     const breeds = useOutletContext<Cat[]>();
@@ -91,15 +89,7 @@ function Home() {
                     </p>
                     <ReadMore path="/why-should-you-have-a-cat" />
                 </div>
-                <div className="grid grid-cols-2 grid-rows-[min-content_1fr] gap-4">
-                    <img src={image2} alt="" className="h-auto w-full" />
-                    <img src={image1} alt="" className="place-self-end" />
-                    <img
-                        src={image3}
-                        className="col-start-2 row-span-full"
-                        alt=""
-                    />
-                </div>
+                <Collage />
             </section>
 
             <footer className="mx-auto max-w-7xl">
