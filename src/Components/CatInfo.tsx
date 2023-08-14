@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { CatDetailed } from '../types';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Characteristics from './Characteristics';
-import Logo from './Logo';
 import Loading from './Loading';
+import Header from './Header';
 
 export default function CatInfo() {
     const [info, setInfo] = useState<CatDetailed | null>(null);
@@ -27,13 +27,7 @@ export default function CatInfo() {
 
     return (
         <div className="min-h-screen bg-[#050709] px-4 pb-5">
-            <header className="bg-[#050709] p-3 px-5">
-                <div className="mx-auto max-w-7xl">
-                    <Link to="/" className="flex w-fit">
-                        <Logo />
-                    </Link>
-                </div>
-            </header>
+            <Header />
             <section className="mx-auto flex max-w-7xl flex-col items-center gap-4 bg-[#050709] p-4 pb-0 pr-0 md:flex-row">
                 <img
                     src={info.url}
