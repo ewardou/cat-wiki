@@ -33,7 +33,7 @@ function Home() {
     return (
         <>
             <header className="bg-[#050709]">
-                <header className="mx-auto flex max-w-7xl flex-col items-center bg-[#050709] bg-[auto_540px] bg-[right_center] bg-no-repeat p-3 px-10 sm:h-[540px] sm:flex-row sm:bg-[url('/src/assets/HeroImagemd.png')]">
+                <header className="mx-auto flex max-w-7xl flex-col items-center bg-[#050709] bg-[auto_540px] bg-[right_center] bg-no-repeat p-3 px-6 sm:h-[540px] sm:flex-row sm:bg-[url('/src/assets/HeroImagemd.png')] sm:px-10">
                     <div className="block h-60 w-60 rounded-full bg-[url('/src/assets/HeroImagemd.png')] bg-cover bg-[90%] outline outline-2 outline-white sm:hidden" />
                     <div className="flex max-w-[400px] flex-col items-center gap-4 sm:items-stretch">
                         <Logo />
@@ -55,7 +55,7 @@ function Home() {
             </header>
 
             <section className="bg-[#E3E1DC]">
-                <div className="mx-auto flex max-w-7xl flex-col gap-3 p-3 px-10 md:min-h-[600px] md:justify-around md:gap-0">
+                <div className="mx-auto flex max-w-7xl flex-col gap-3 p-3 px-6 sm:px-10 md:min-h-[600px] md:justify-around md:gap-0">
                     <div className="w-fit">
                         <p className="text-lg">Complete breed list</p>
                         <div className="h-1 w-[50%] bg-slate-800"></div>
@@ -76,7 +76,7 @@ function Home() {
                 </div>
             </section>
 
-            <section className="mx-auto flex max-w-7xl flex-col justify-around gap-5 p-12 md:flex-row md:items-center">
+            <section className="mx-auto flex max-w-7xl flex-col justify-around gap-5 p-6 sm:p-12 md:flex-row md:items-center">
                 <div className="flex flex-col gap-5 md:w-[50%]">
                     <div className="h-1 w-[20%] bg-slate-800"></div>
                     <h1 className="text-4xl font-bold md:text-5xl">
@@ -92,8 +92,8 @@ function Home() {
                 <Collage />
             </section>
 
-            <footer className="mx-auto max-w-7xl">
-                <p>
+            <footer className="mx-auto max-w-7xl p-2">
+                <p className="text-right">
                     Project idea from{' '}
                     <a
                         href="https://devchallenges.io/"
